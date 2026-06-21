@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Policies from './pages/Policies';
 import Claims from './pages/Claims';
+import ClaimDetail from './pages/ClaimDetail';
 import ProtectedRoute from './pages/ProtectedRoute';
 
 function App() {
@@ -31,6 +32,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Claims />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/claims/:id"
+          element={
+            <ProtectedRoute>
+              <ClaimDetail />
             </ProtectedRoute>
           }
         />

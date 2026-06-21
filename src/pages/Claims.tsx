@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../api/axios';
 import Navbar from '../components/Navbar';
 
@@ -50,9 +51,10 @@ function Claims() {
         {!loading && claims.length > 0 && (
           <div className="space-y-4">
             {claims.map((claim) => (
-              <div
+              <Link
+                to={`/claims/${claim.id}`}
                 key={claim.id}
-                className="bg-white rounded-xl shadow-sm border border-gray-100 p-6"
+                className="block bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition"
               >
                 <div className="flex justify-between items-start mb-2">
                   <h2 className="text-lg font-semibold text-gray-800">
@@ -68,7 +70,7 @@ function Claims() {
                   <span>Claimed: ₹{claim.amount_claimed}</span>
                   <span>Approved: ₹{claim.amount_approved}</span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
@@ -76,5 +78,7 @@ function Claims() {
     </div>
   );
 }
+
+
 
 export default Claims;
